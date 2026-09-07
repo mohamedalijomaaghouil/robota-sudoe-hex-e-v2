@@ -1,0 +1,77 @@
+========== UNLOADED GRAVITY-MAP FIT ==========
+Unloaded observations:       36
+Relative fit observations:   32
+Design rank:                 3
+Design condition number:     2.159048
+Design singular values:
+[24.01946413 21.92845602 11.12502351]
+
+Calibrated-force gravity map H:
+[[ 2.36141775 -0.09427079 -0.08677186]
+ [ 0.05265703  2.07757729 -0.08895589]
+ [-0.38057919 -0.15119476  2.25313453]]
+
+Model:
+  delta calibrated force = H @ delta gravity_tool
+
+Combined fit quality:
+  Component RMSE:             0.387433 N
+  Vector RMSE:                0.671054 N
+  Mean vector error:          0.624537 N
+  Maximum vector error:       1.308365 N
+
+========== INDIVIDUAL-RUN FITS ==========
+
+run1
+H:
+[[ 2.38382242 -0.1136203  -0.23600256]
+ [ 0.0485688   2.06419788 -0.04870559]
+ [-0.37935205 -0.15947289  2.10498735]]
+Rank:              3
+Condition number:  2.159042
+Mean vector error: 0.476267 N
+Maximum error:     0.814046 N
+
+run2
+H:
+[[ 2.33900667 -0.07492037  0.06246372]
+ [ 0.05674765  2.09095663 -0.1292063 ]
+ [-0.38181346 -0.14291501  2.40128119]]
+Rank:              3
+Condition number:  2.159055
+Mean vector error: 0.441587 N
+Maximum error:     0.971960 N
+
+========== CROSS-RUN VALIDATION ==========
+
+Train run1, test run2:
+  Test records:       16
+  Mean vector error:  0.921609 N
+  Vector RMSE:        1.010465 N
+  Maximum error:      1.660477 N
+
+Train run2, test run1:
+  Test records:       16
+  Mean vector error:  0.990728 N
+  Vector RMSE:        1.027460 N
+  Maximum error:      1.539662 N
+
+========== LEAVE-ONE-ORIENTATION-OUT ==========
+w1_m120_w2_m120: errors=[0.7705250123627833, 0.7914951247435791, 0.7480601360114085, 0.8458512766749923], mean=0.788983 N
+w1_m120_w2_m60: errors=[0.7957248528395345, 0.7516278911395278, 0.2576212783319466, 0.42857615914580527], mean=0.558388 N
+w1_m120_w2_m90: errors=[0.7453511293276809, 0.9198781503264889, 0.8542912843838076, 1.043341244180489], mean=0.890715 N
+w1_m60_w2_m120: errors=[0.6342799784891718, 1.0304598129672067, 0.8358505979875647, 0.5525482291777906], mean=0.763285 N
+w1_m60_w2_m60: errors=[0.44374507843600647, 0.4759627622188595, 0.8759133208381679, 0.5642712276282897], mean=0.589973 N
+w1_m60_w2_m90: errors=[0.5766937929143987, 1.0199496898611218, 0.925298040927983, 1.4545834716589978], mean=0.994131 N
+w1_m90_w2_m120: errors=[0.5754702695273233, 0.9663320958907466, 0.36143592871323854, 0.3765997588562801], mean=0.569960 N
+w1_m90_w2_m60: errors=[0.816778737051314, 0.8625722607173724, 0.37088777063118633, 0.25095494356108466], mean=0.575298 N
+
+Grouped cross-validation summary:
+  Mean vector error:          0.716342 N
+  Vector RMSE:                0.763108 N
+  Maximum vector error:       1.454583 N
+
+Saved: /home/kairos/hex_e_calibration_20260901_145215/hex_e_unloaded_gravity_map_fit.json
+No ROS node was started.
+No calibration was applied.
+No robot motion was commanded.

@@ -1,0 +1,158 @@
+[INFO] [1788345412.549964002] [hex_e_compensation_diagnostic]: HEX-E diagnostic compensation node started.
+[INFO] [1788345412.550819144] [hex_e_compensation_diagnostic]: Input:  /bus0/ft_sensor0/ft_sensor_readings/wrench
+[INFO] [1788345412.551618251] [hex_e_compensation_diagnostic]: Output: /hex_e/compensated_wrench
+[INFO] [1788345412.552407656] [hex_e_compensation_diagnostic]: This node publishes diagnostic wrench data only.
+[INFO] [1788345412.553205534] [hex_e_compensation_diagnostic]: It does not publish any robot motion commands.
+[WARN] [1788345412.554074207] [hex_e_compensation_diagnostic]: Keep the tool unloaded and do not touch the robot while collecting 50 tare samples.
+[WARN] [1788345412.633864591] [hex_e_compensation_diagnostic]: Waiting for base_link -> tool0 TF: "base_link" passed to lookupTransform argument target_frame does not exist. 
+[INFO] [1788345412.823595548] [hex_e_compensation_diagnostic]: Collecting stationary tare: 1/50
+[INFO] [1788345413.723659884] [hex_e_compensation_diagnostic]: Collecting stationary tare: 10/50
+[INFO] [1788345414.723760100] [hex_e_compensation_diagnostic]: Collecting stationary tare: 20/50
+[INFO] [1788345415.723845769] [hex_e_compensation_diagnostic]: Collecting stationary tare: 30/50
+[INFO] [1788345416.723540474] [hex_e_compensation_diagnostic]: Collecting stationary tare: 40/50
+[INFO] [1788345417.723445467] [hex_e_compensation_diagnostic]: Collecting stationary tare: 50/50
+[INFO] [1788345417.725379768] [hex_e_compensation_diagnostic]: Tare complete.
+[INFO] [1788345417.727378642] [hex_e_compensation_diagnostic]: Estimated tool-frame bias [N]: [-15.339516  -7.439665 201.677262]
+[INFO] [1788345417.728983991] [hex_e_compensation_diagnostic]: Tare sample standard deviation [N]: [0.923901 0.080893 0.701034]
+[WARN] [1788345417.730614948] [hex_e_compensation_diagnostic]: Compensation is diagnostic and provisional; do not connect it to a motion controller yet.
+[INFO] [1788345418.534133041] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.7092 -0.0118  1.0887]; norm=1.2993 N
+[INFO] [1788345419.535935202] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 0.2667  0.0426 -0.3443]; norm=0.4376 N
+[INFO] [1788345420.536599977] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [0.5308 0.0725 0.1571]; norm=0.5583 N
+[INFO] [1788345421.534271938] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.8398 -0.0335  1.7511]; norm=1.9424 N
+[INFO] [1788345422.534338255] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 1.7587  0.2276 -0.202 ]; norm=1.7848 N
+[INFO] [1788345423.534618351] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.9448 -0.0885 -1.0758]; norm=1.4345 N
+[INFO] [1788345424.534323674] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [0.2289 0.0158 0.4934]; norm=0.5442 N
+[INFO] [1788345425.534722122] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.206  -0.0377  0.7857]; norm=0.8132 N
+[INFO] [1788345426.536288307] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.0031  0.0132  0.954 ]; norm=0.9541 N
+[INFO] [1788345427.534363884] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 1.0698  0.0665 -0.4314]; norm=1.1554 N
+Keep the complete tool assembly unloaded.
+Do not touch or move the robot.
+The first approximately five seconds are used for tare.
+After tare, 600 compensated samples will be collected.
+No robot-motion commands are published.
+Collected 100/600 samples
+Collected 100/600 samples
+Collected 100/600 samples
+Collected 100/600 samples
+[INFO] [1788345428.535583336] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.8328 -0.0063  0.2078]; norm=0.8583 N
+[INFO] [1788345429.534293397] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-1.4015 -0.1529 -0.1166]; norm=1.4147 N
+[INFO] [1788345430.534659763] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.0572  0.0208  0.7327]; norm=0.7352 N
+[INFO] [1788345431.535346591] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 0.2578 -0.0816  0.7258]; norm=0.7745 N
+[INFO] [1788345432.534239988] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 0.2637 -0.0851 -0.2242]; norm=0.3564 N
+[INFO] [1788345433.534857917] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-1.0439 -0.1351  0.7436]; norm=1.2888 N
+[INFO] [1788345434.534862307] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 0.9089  0.0997 -0.712 ]; norm=1.1588 N
+[INFO] [1788345435.535637688] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 1.013   0.1102 -1.0893]; norm=1.4916 N
+[INFO] [1788345436.534513571] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [0.4201 0.0194 1.751 ]; norm=1.8008 N
+[INFO] [1788345437.534684468] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.16   -0.0385 -0.5649]; norm=0.5883 N
+Collected 200/600 samples
+Collected 200/600 samples
+Collected 200/600 samples
+Collected 200/600 samples
+[INFO] [1788345438.535126460] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.0617 -0.0323  1.9769]; norm=1.9781 N
+[INFO] [1788345439.533455531] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 0.0721  0.0234 -0.4265]; norm=0.4332 N
+[INFO] [1788345440.533566687] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.9682 -0.1677  1.3726]; norm=1.6881 N
+[INFO] [1788345441.534794205] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 0.4711  0.0618 -1.2689]; norm=1.3549 N
+[INFO] [1788345442.533599246] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 0.9813  0.0554 -0.4098]; norm=1.0649 N
+[INFO] [1788345443.534512542] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 0.3779  0.0911 -1.1309]; norm=1.1959 N
+[INFO] [1788345444.534905094] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.6175  0.0399 -1.2119]; norm=1.3607 N
+[INFO] [1788345445.534927269] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [1.4996e+00 1.4125e-01 9.2796e-04]; norm=1.5063 N
+[INFO] [1788345446.534715245] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.4151 -0.1394 -0.6036]; norm=0.7457 N
+[INFO] [1788345447.535085722] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.5362 -0.0523 -0.5024]; norm=0.7366 N
+Collected 300/600 samples
+Collected 300/600 samples
+Collected 300/600 samples
+Collected 300/600 samples
+[INFO] [1788345448.535977830] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.3004 -0.0092 -0.791 ]; norm=0.8461 N
+[INFO] [1788345449.534470053] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.7883 -0.0228 -1.0157]; norm=1.2859 N
+[INFO] [1788345450.534714634] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 0.5034 -0.0038 -1.3748]; norm=1.4641 N
+[INFO] [1788345451.534867497] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.2943 -0.0361  0.7654]; norm=0.8209 N
+[INFO] [1788345452.534642825] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [0.216  0.0294 0.8072]; norm=0.8361 N
+[INFO] [1788345453.534543821] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.1076 -0.0665  1.313 ]; norm=1.3191 N
+[INFO] [1788345454.534394664] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.3415 -0.1031 -1.7134]; norm=1.7502 N
+[INFO] [1788345455.534523664] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [0.9883 0.0563 0.5958]; norm=1.1554 N
+[INFO] [1788345456.534254805] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-1.396  -0.1308 -0.7816]; norm=1.6053 N
+[INFO] [1788345457.534304895] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.3395 -0.1012  2.0835]; norm=2.1134 N
+Collected 400/600 samples
+Collected 400/600 samples
+Collected 400/600 samples
+[INFO] [1788345458.535170288] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-1.0477 -0.0597 -0.2145]; norm=1.0711 N
+[INFO] [1788345459.534695349] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-1.1038 -0.0961  1.2618]; norm=1.6792 N
+[INFO] [1788345460.534506847] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.0473  0.0011 -1.1112]; norm=1.1122 N
+[INFO] [1788345461.534736841] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 0.6897  0.03   -0.2993]; norm=0.7524 N
+[INFO] [1788345462.534282224] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 0.4691 -0.0327 -1.1751]; norm=1.2657 N
+[INFO] [1788345463.534838184] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-1.5392 -0.1734  0.1925]; norm=1.5609 N
+[INFO] [1788345464.535257215] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 0.9287 -0.0267 -1.3589]; norm=1.6461 N
+[INFO] [1788345465.535028719] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [0.5672 0.0353 0.2084]; norm=0.6053 N
+[INFO] [1788345466.534512117] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 2.0955  0.1473 -1.2722]; norm=2.4559 N
+[INFO] [1788345467.534529897] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-1.1014 -0.0307 -0.7322]; norm=1.3229 N
+Collected 500/600 samples
+Collected 500/600 samples
+Collected 500/600 samples
+[INFO] [1788345468.534503368] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-0.7114 -0.1122 -0.7305]; norm=1.0258 N
+[INFO] [1788345469.533884376] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [1.4916 0.1025 0.1692]; norm=1.5046 N
+[INFO] [1788345470.533754599] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-1.1641 -0.0711  0.164 ]; norm=1.1778 N
+[INFO] [1788345471.533510314] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 0.3184 -0.1009  0.2374]; norm=0.4098 N
+[INFO] [1788345472.534509249] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 0.7529  0.0711 -0.8694]; norm=1.1523 N
+[INFO] [1788345473.534677637] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-1.2114 -0.0074  1.6738]; norm=2.0661 N
+[INFO] [1788345474.534541738] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 0.0415 -0.004   0.7788]; norm=0.7799 N
+[INFO] [1788345475.534060348] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 0.3382 -0.0268  0.0416]; norm=0.3418 N
+[INFO] [1788345476.534711534] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [-1.0668 -0.1882  0.2187]; norm=1.1051 N
+[INFO] [1788345477.534923898] [hex_e_compensation_diagnostic]: Compensated force in tool0 [N]: [ 0.2504 -0.006  -0.2324]; norm=0.3417 N
+Collected 600/600 samples
+
+========== FILTER CHARACTERIZATION ==========
+Median sample interval: 0.099996 s
+Measured sample rate:   10.000412 Hz
+
+UNFILTERED
+  Samples:              600
+  Mean force:           [-0.09498551 -0.01938653  0.00619466] N
+  Component std:       [0.99488195 0.09840876 0.91821672] N
+  RMS force norm:       1.359765 N
+  Median norm:          1.180379 N
+  95th percentile norm: 2.177759 N
+  99th percentile norm: 2.538941 N
+  Maximum norm:         2.894184 N
+
+EMA alpha=0.10, approximate cutoff=0.168 Hz
+  Samples:              550
+  Mean force:           [-0.09697285 -0.02093939  0.0113079 ] N
+  Component std:       [0.2120035  0.02132625 0.22390035] N
+  RMS force norm:       0.324543 N
+  Median norm:          0.272631 N
+  95th percentile norm: 0.542568 N
+  99th percentile norm: 0.689904 N
+  Maximum norm:         0.844105 N
+
+EMA alpha=0.20, approximate cutoff=0.355 Hz
+  Samples:              550
+  Mean force:           [-0.0957396  -0.02101058  0.0136122 ] N
+  Component std:       [0.30979951 0.03104533 0.30607681] N
+  RMS force norm:       0.447290 N
+  Median norm:          0.372751 N
+  95th percentile norm: 0.763198 N
+  99th percentile norm: 0.926703 N
+  Maximum norm:         1.278145 N
+
+EMA alpha=0.30, approximate cutoff=0.568 Hz
+  Samples:              550
+  Mean force:           [-0.09548068 -0.02105911  0.01433718] N
+  Component std:       [0.39412276 0.0397473  0.37973857] N
+  RMS force norm:       0.557075 N
+  Median norm:          0.455557 N
+  95th percentile norm: 0.957178 N
+  99th percentile norm: 1.151172 N
+  Maximum norm:         1.625335 N
+
+EMA alpha=0.50, approximate cutoff=1.103 Hz
+  Samples:              550
+  Mean force:           [-0.09563002 -0.02110738  0.0147751 ] N
+  Component std:       [0.55499379 0.0559588  0.52100788] N
+  RMS force norm:       0.768992 N
+  Median norm:          0.673273 N
+  95th percentile norm: 1.270636 N
+  99th percentile norm: 1.531317 N
+  Maximum norm:         2.138812 N
+
+Saved full-rate unfiltered samples: /home/kairos/hex_e_calibration_20260901_145215/hex_e_compensation_filter_characterization_samples.csv
+No robot motion was commanded.

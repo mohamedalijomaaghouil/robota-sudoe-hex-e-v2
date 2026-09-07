@@ -1,0 +1,36 @@
+=== OFFLINE SOFT-DEADBAND COMPARISON ===
+Evaluated stationary samples: 550
+EMA alpha:                   0.20
+
+responsive
+  Deadband [Fx, Fy, Fz]:       [0.8 0.1 0.8] N
+  Axis false-activation rate: [1.09090909 0.72727273 1.09090909] %
+  Any-axis activation rate:   2.363636 %
+  Completely zero samples:    97.636364 %
+  Conditioned RMS norm:        0.011164 N
+  Conditioned 95th percentile: 0.000000 N
+  Conditioned 99th percentile: 0.039132 N
+  Conditioned maximum norm:    0.144022 N
+
+recommended_conservative
+  Deadband [Fx, Fy, Fz]:       [0.9  0.12 0.85] N
+  Axis false-activation rate: [0.18181818 0.         0.36363636] %
+  Any-axis activation rate:   0.545455 %
+  Completely zero samples:    99.454545 %
+  Conditioned RMS norm:        0.004263 N
+  Conditioned 95th percentile: 0.000000 N
+  Conditioned 99th percentile: 0.000000 N
+  Conditioned maximum norm:    0.070328 N
+
+very_conservative
+  Deadband [Fx, Fy, Fz]:       [1.   0.15 1.  ] N
+  Axis false-activation rate: [0. 0. 0.] %
+  Any-axis activation rate:   0.000000 %
+  Completely zero samples:    100.000000 %
+  Conditioned RMS norm:        0.000000 N
+  Conditioned 95th percentile: 0.000000 N
+  Conditioned 99th percentile: 0.000000 N
+  Conditioned maximum norm:    0.000000 N
+
+This was an offline calculation.
+No ROS node was started and no robot motion was commanded.

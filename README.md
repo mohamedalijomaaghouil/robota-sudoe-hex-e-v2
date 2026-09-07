@@ -15,7 +15,7 @@ The primary objectives were:
 2. Implement force-guided admittance control.
 3. Record manually guided demonstrations.
 4. Replay recorded arm and gripper motions.
-5. Integrate a OnRobot HEX-E v2 external force/torque sensor.
+5. Integrate an OnRobot HEX-E v2 external force/torque sensor.
 6. Develop safer preview, interlock, and execution mechanisms.
 
 ## Current status

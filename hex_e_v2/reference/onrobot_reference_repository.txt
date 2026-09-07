@@ -1,0 +1,17 @@
+# OnRobot HEX-E v2 Reference Repository
+
+Recorded:
+2026-09-07T21:02:30+02:00
+
+Local path:
+/home/kairos/reference_repos/Onrobot-hex-e-v2
+
+## Commit
+dfc478be7a2b76e3f4dd383cb98fc34b1a767932
+dfc478b (HEAD -> main, origin/main, origin/HEAD) Subiendo cambios hexFT
+
+## Remotes
+origin	https://github.com/AlejandroSIRob/Onrobot-hex-e-v2.git (fetch)
+origin	https://github.com/AlejandroSIRob/Onrobot-hex-e-v2.git (push)
+
+## Working-tree state

@@ -1,0 +1,87 @@
+{
+  "wrench_column_order": [
+    "bracketed_raw_delta_Fx",
+    "bracketed_raw_delta_Fy",
+    "bracketed_raw_delta_Fz",
+    "bracketed_raw_delta_Tx",
+    "bracketed_raw_delta_Ty",
+    "bracketed_raw_delta_Tz"
+  ],
+  "force_output_order": [
+    "expected_force_delta_x",
+    "expected_force_delta_y",
+    "expected_force_delta_z"
+  ],
+  "training_record_count": 18,
+  "validation_record_count": 8,
+  "matrix_3x6": [
+    [
+      0.6040646463501859,
+      0.2925411933344083,
+      -0.2336767756933466,
+      1.989087696895045,
+      5.315778606666378,
+      7.158260733735124
+    ],
+    [
+      -0.09584190453239196,
+      1.1920599980829714,
+      0.02448394367153487,
+      0.9870775466179538,
+      0.5469982836539296,
+      1.1832477765468252
+    ],
+    [
+      -0.13898829867510398,
+      0.015813381996710427,
+      0.9794327570086403,
+      -3.0679470719123083,
+      1.2968917935043118,
+      -0.30147564855249653
+    ]
+  ],
+  "training": {
+    "rank": 6,
+    "condition_number": 16.306854523620146,
+    "singular_values": [
+      7.368729166000209,
+      5.892939541189251,
+      4.218540655577217,
+      0.8242262855694026,
+      0.5435668811698406,
+      0.4518792484060464
+    ],
+    "component_rmse_N": 0.21447859235614466,
+    "vector_rmse_N": 0.3714878190966964,
+    "mean_vector_error_N": 0.3236597606152485,
+    "maximum_vector_error_N": 0.7326339494616589
+  },
+  "leave_one_orientation_out": {
+    "mean_error_N": 0.8755871970017556,
+    "rms_error_N": 1.3070513574204037,
+    "maximum_error_N": 4.58643296188824
+  },
+  "independent_1051g": {
+    "force_only_3x3": {
+      "mean_vector_error_N": 0.7894205135454275,
+      "vector_rmse_N": 0.833628769006191,
+      "maximum_vector_error_N": 1.197286257522674
+    },
+    "wrench_3x6": {
+      "mean_vector_error_N": 0.4782691738296748,
+      "vector_rmse_N": 0.5209950933356007,
+      "maximum_vector_error_N": 0.9597112187696902,
+      "per_record_errors_N": [
+        0.5127889462317491,
+        0.4034032921956327,
+        0.39150731916399417,
+        0.9597112187696902,
+        0.5433032500841688,
+        0.32101272490320415,
+        0.47397097135861815,
+        0.2204556679303414
+      ]
+    },
+    "mean_error_improvement_N": 0.3111513397157527
+  }
+}

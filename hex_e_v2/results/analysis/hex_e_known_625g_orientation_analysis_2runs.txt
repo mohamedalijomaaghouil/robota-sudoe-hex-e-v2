@@ -1,0 +1,120 @@
+========== TWO-RUN KNOWN 625 g ANALYSIS ==========
+Session:                       /home/kairos/hex_e_calibration_20260901_145215
+Run 1 records:                 9
+Run 2 records:                 9
+Combined records:              18
+Run 2 reverses Run 1:          True
+
+Combined known-mass force matrix A:
+[[ 1.25553198e+00 -3.16532263e-02 -6.37730031e-02]
+ [ 7.31990577e-04  1.12968389e+00 -4.59014772e-02]
+ [-1.16084707e-01  6.96001054e-02  1.41995740e+00]]
+Rank:                          3
+Condition number:              1.854196
+Design singular values:
+[15.34511588  8.58604161  8.27588558]
+Vector RMSE:                   0.568126 N
+Mean vector error:             0.517542 N
+Maximum vector error:          0.979674 N
+
+========== PER-RUN FITS ==========
+
+Run 1:
+[[ 1.27432244 -0.03519564 -0.08393773]
+ [-0.00772976  1.11769062 -0.04529398]
+ [-0.10336547  0.0967167   1.43095156]]
+Rank:                          3
+Condition number:              1.860507
+Vector RMSE:                   0.513984 N
+Maximum vector error:          0.874480 N
+
+Run 2:
+[[ 1.2388697  -0.02904318 -0.04482652]
+ [ 0.00923654  1.14236018 -0.04646989]
+ [-0.13005159  0.04151253  1.40947239]]
+Rank:                          3
+Condition number:              1.850290
+Vector RMSE:                   0.597178 N
+Maximum vector error:          1.073242 N
+
+Run 2 matrix minus Run 1 matrix:
+[[-0.03545274  0.00615246  0.0391112 ]
+ [ 0.0169663   0.02466956 -0.0011759 ]
+ [-0.02668611 -0.05520417 -0.02147917]]
+Matrix Frobenius difference:   0.089125
+Run 1 Azz:                     1.430952
+Run 2 Azz:                     1.409472
+Azz absolute difference:       0.021479
+
+========== CROSS-RUN PREDICTION ==========
+
+Train Run 1, test Run 2:
+  Vector RMSE:                 0.637696 N
+  Mean vector error:           0.591556 N
+  Maximum vector error:        0.919974 N
+
+Train Run 2, test Run 1:
+  Vector RMSE:                 0.559621 N
+  Mean vector error:           0.514102 N
+  Maximum vector error:        0.841474 N
+
+========== RAW-DELTA REPEATABILITY ==========
+
+reference
+  Run2 - Run1:                 [-0.54060002  0.09605     0.03424866] N
+  Difference norm:             0.550134 N
+
+w1_m120_w2_m120
+  Run2 - Run1:                 [-0.26635004  0.05319992  0.12384911] N
+  Difference norm:             0.298515 N
+
+w1_m120_w2_m60
+  Run2 - Run1:                 [0.06775002 0.06565002 0.14139938] N
+  Difference norm:             0.169982 N
+
+w1_m120_w2_m90
+  Run2 - Run1:                 [ 0.42344995  0.0112     -0.25319984] N
+  Difference norm:             0.493503 N
+
+w1_m60_w2_m120
+  Run2 - Run1:                 [ 0.09989996  0.02075004 -0.17830032] N
+  Difference norm:             0.205430 N
+
+w1_m60_w2_m60
+  Run2 - Run1:                 [-0.16029998 -0.15034997  0.11730072] N
+  Difference norm:             0.249120 N
+
+w1_m60_w2_m90
+  Run2 - Run1:                 [0.2806     0.0545     0.28959862] N
+  Difference norm:             0.406908 N
+
+w1_m90_w2_m120
+  Run2 - Run1:                 [-0.36034998 -0.02920001  0.03715164] N
+  Difference norm:             0.363435 N
+
+w1_m90_w2_m60
+  Run2 - Run1:                 [-0.44719998 -0.16214997  0.2617482 ] N
+  Difference norm:             0.542948 N
+
+Repeatability summary:
+  Mean difference:             0.364442 N
+  Maximum difference:          0.550134 N
+
+========== LEAVE-ONE-ORIENTATION-OUT ==========
+reference: errors=[0.3729848607902611, 0.5715294285170822], mean=0.472257 N
+w1_m120_w2_m120: errors=[0.7583429239207912, 0.41960734681660233], mean=0.588975 N
+w1_m120_w2_m60: errors=[0.6905149066816653, 0.7334245474175324], mean=0.711970 N
+w1_m120_w2_m90: errors=[0.749149666603314, 1.1654614823044094], mean=0.957306 N
+w1_m60_w2_m120: errors=[1.420343954215799, 1.1317424081244987], mean=1.276043 N
+w1_m60_w2_m60: errors=[1.0472955004535023, 0.7594126659963664], mean=0.903354 N
+w1_m60_w2_m90: errors=[0.20207232073280995, 0.5400297888614533], mean=0.371051 N
+w1_m90_w2_m120: errors=[0.9305834156279604, 1.1393417011614526], mean=1.034963 N
+w1_m90_w2_m60: errors=[0.14373915259026163, 0.84940001304013], mean=0.496570 N
+
+Leave-one-orientation-out summary:
+  Mean error:                  0.756943 N
+  RMS error:                   0.828708 N
+  Maximum error:               1.420344 N
+
+No calibration was applied.
+Saved: /home/kairos/hex_e_calibration_20260901_145215/hex_e_known_625g_orientation_analysis_2runs.json

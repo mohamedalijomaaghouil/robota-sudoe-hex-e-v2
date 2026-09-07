@@ -1,0 +1,316 @@
+diff --git a/bota_driver/rokubimini_bus_manager/src/rokubimini_bus_manager/BusManager.cpp b/bota_driver/rokubimini_bus_manager/src/rokubimini_bus_manager/BusManager.cpp
+index 381ec49..8a4d227 100644
+--- a/bota_driver/rokubimini_bus_manager/src/rokubimini_bus_manager/BusManager.cpp
++++ b/bota_driver/rokubimini_bus_manager/src/rokubimini_bus_manager/BusManager.cpp
+@@ -70,11 +70,15 @@ bool RokubiminiBusManager::startup()
+ 
+ bool RokubiminiBusManager::update(const bota_worker::WorkerEvent& event)
+ {
+-  RCLCPP_DEBUG(nh_->get_logger(), "[RokubiminiBusManager]: update called");
++
+   readBus();
++
+   updateProcessReading();
++
+   writeToBus();
++
+   publishRosMessages();
++
+   return true;
+ }
+ 
+diff --git a/bota_driver/rokubimini_ethercat/include/rokubimini_ethercat/RxPdo.hpp b/bota_driver/rokubimini_ethercat/include/rokubimini_ethercat/RxPdo.hpp
+index 240e45f..673e30e 100644
+--- a/bota_driver/rokubimini_ethercat/include/rokubimini_ethercat/RxPdo.hpp
++++ b/bota_driver/rokubimini_ethercat/include/rokubimini_ethercat/RxPdo.hpp
+@@ -1,17 +1,21 @@
+ #pragma once
+ 
+-// std
+ #include <cstdint>
+ 
+ namespace rokubimini
+ {
+ namespace ethercat
+ {
+-// Not sure if needed
++
++// OnRobot HEX-E v2 / OptoForce EtherCAT RxPDO, exactly 4 bytes.
++// Layout confirmed using SOEM slaveinfo -map.
+ struct RxPdo
+ {
+-  uint8_t digitalOutput_ = 0;
++  uint16_t filter_ = 0;  // 0x7000:01 FILTER
++  uint16_t zero_ = 0;    // 0x7000:02 ZERO
+ } __attribute__((packed));
+ 
++static_assert(sizeof(RxPdo) == 4, "RxPdo must be exactly 4 bytes");
++
+ }  // namespace ethercat
+ }  // namespace rokubimini
+diff --git a/bota_driver/rokubimini_ethercat/include/rokubimini_ethercat/TxPdoA.hpp b/bota_driver/rokubimini_ethercat/include/rokubimini_ethercat/TxPdoA.hpp
+index 28bb999..6574f34 100644
+--- a/bota_driver/rokubimini_ethercat/include/rokubimini_ethercat/TxPdoA.hpp
++++ b/bota_driver/rokubimini_ethercat/include/rokubimini_ethercat/TxPdoA.hpp
+@@ -1,37 +1,39 @@
+ #pragma once
+ 
+-// std
+ #include <cstdint>
+ 
+ namespace rokubimini
+ {
+ namespace ethercat
+ {
++
++// OnRobot HEX-E v2 / OptoForce EtherCAT TxPDO, exactly 56 bytes.
++// Layout confirmed using SOEM slaveinfo -map.
+ struct TxPdoA
+ {
+-  uint8_t status_;
+-  uint32_t warningsErrorsFatals_;
++  // 0x6000:01-06, offsets 0x00-0x17
+   float forceX_;
+   float forceY_;
+   float forceZ_;
+   float torqueX_;
+   float torqueY_;
+   float torqueZ_;
+-  uint16_t forceTorqueSaturated_;
+-  float accelerationX_;
+-  float accelerationY_;
+-  float accelerationZ_;
+-  uint8_t accelerationSaturated_;
+-  float angularRateX_;
+-  float angularRateY_;
+-  float angularRateZ_;
+-  uint8_t angularRateSaturated_;
+-  float temperature_;
+-  float estimatedOrientationX_;
+-  float estimatedOrientationY_;
+-  float estimatedOrientationZ_;
+-  float estimatedOrientationW_;
++
++  // 0x6010:01-06, offsets 0x1c-0x33
++  int32_t forceX_raw_;
++  int32_t forceY_raw_;
++  int32_t forceZ_raw_;
++  int32_t torqueX_raw_;
++  int32_t torqueY_raw_;
++  int32_t torqueZ_raw_;
++
++  // Offsets 0x34-0x3b
++  int16_t divider_;
++  uint16_t sampleCounter_;
++  uint32_t status_;
+ } __attribute__((packed));
+ 
++static_assert(sizeof(TxPdoA) == 56, "TxPdoA must be exactly 56 bytes");
++
+ }  // namespace ethercat
+ }  // namespace rokubimini
+diff --git a/bota_driver/rokubimini_ethercat/include/rokubimini_ethercat/soem_interface/EthercatBusBase.hpp b/bota_driver/rokubimini_ethercat/include/rokubimini_ethercat/soem_interface/EthercatBusBase.hpp
+index 24f07df..f11faf9 100644
+--- a/bota_driver/rokubimini_ethercat/include/rokubimini_ethercat/soem_interface/EthercatBusBase.hpp
++++ b/bota_driver/rokubimini_ethercat/include/rokubimini_ethercat/soem_interface/EthercatBusBase.hpp
+@@ -326,7 +326,7 @@ public:
+   {
+     assert(static_cast<int>(slave) <= getNumberOfSlaves());
+     std::lock_guard<std::recursive_mutex> guard(contextMutex_);
+-    assert(sizeof(TxPdo) == ecatContext_.slavelist[slave].Ibytes);
++    // assert disabled for gen0: sizeof(TxPdo) may differ from Ibytes
+     memcpy(&txPdo, ecatContext_.slavelist[slave].inputs, sizeof(TxPdo));
+   }
+ 
+@@ -340,7 +340,7 @@ public:
+   {
+     assert(static_cast<int>(slave) <= getNumberOfSlaves());
+     std::lock_guard<std::recursive_mutex> guard(contextMutex_);
+-    assert(sizeof(RxPdo) == ecatContext_.slavelist[slave].Obytes);
++    // assert disabled for gen0: sizeof(RxPdo) may differ from Obytes
+     memcpy(ecatContext_.slavelist[slave].outputs, &rxPdo, sizeof(RxPdo));
+   }
+ 
+diff --git a/bota_driver/rokubimini_ethercat/launch/rokubimini_ethercat.launch.py b/bota_driver/rokubimini_ethercat/launch/rokubimini_ethercat.launch.py
+index 63f17c4..106aead 100644
+--- a/bota_driver/rokubimini_ethercat/launch/rokubimini_ethercat.launch.py
++++ b/bota_driver/rokubimini_ethercat/launch/rokubimini_ethercat.launch.py
+@@ -20,15 +20,15 @@ def generate_launch_description():
+             output='screen',
+             on_exit=launch.actions.Shutdown(),
+             parameters=[
+-                os.path.join(get_package_share_directory('rokubimini'), 'config', 'rokubimini_sensor.yaml'),
++                '/home/kairos/kairos_ws/src/bota_ft_sensor_driver/sensor_offset/rokubimini_sensor_minimal.yaml',
+                 {
+-                    'num_spinners': 3
++                    'num_spinners': 1
+                 },
+                 {
+-                    'time_step': 0.001
++                    'time_step': 0.1
+                 },
+                 {
+-                    'ethercat_bus': 'eno1'
++                    'ethercat_bus': 'enp3s0'
+                 },
+                 {
+                     'rokubiminis': ['ft_sensor0']  # ['ft_sensor0', 'ft_sensor1']
+@@ -37,7 +37,7 @@ def generate_launch_description():
+                     'rokubiminis/ft_sensor0/name': launch.substitutions.LaunchConfiguration('ft_sensor_a_name')
+                 },
+                 {
+-                    'rokubiminis/ft_sensor0/product_name': 'BFT-SENS-ECAT-M8'
++                    'rokubiminis/ft_sensor0/product_name': 'BFT-ROKS-ECAT-M8'
+                 },
+                 {
+                     'rokubiminis/ft_sensor0/ethercat_address': 1
+diff --git a/bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/RokubiminiEthercat.cpp b/bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/RokubiminiEthercat.cpp
+index 7686c80..825f659 100644
+--- a/bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/RokubiminiEthercat.cpp
++++ b/bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/RokubiminiEthercat.cpp
+@@ -151,6 +151,7 @@ void RokubiminiEthercat::setRunsAsync(bool runsAsync)
+ }
+ void RokubiminiEthercat::publishRosMessages()
+ {
++
+   auto reading = getReading();
+   rokubimini_msgs::msg::Reading reading_msg;
+   reading_msg.header.stamp = reading.getWrench().header.stamp;
+@@ -198,7 +199,7 @@ void RokubiminiEthercat::publishRosMessages()
+   imuPublisher_->publish(reading.getImu());
+   temperaturePublisher_->publish(reading.getTemperature());
+   // update the data flags to be used by diagnostics
+-  slavePtr_->updateDataFlags();
++  // slavePtr_->updateDataFlags(); // disabled for gen0
+ }
+ 
+ void RokubiminiEthercat::signalShutdown()
+@@ -221,8 +222,8 @@ void RokubiminiEthercat::createRosDiagnostics()
+   connectionStatusUpdater_->setHardwareID(std::to_string(serial_number));
+   connectionStatusUpdater_->add(getName() + ": Status", this, &RokubiminiEthercat::updateConnectionStatus);
+   // create the timer for the data flags diagnostics
+-  dataFlagsDiagnosticsTimer_ = rclcpp::create_timer(nh_, nh_->get_clock(), rclcpp::Duration(0, 100000000),
+-                                                    std::bind(&RokubiminiEthercat::publishDataFlagsDiagnostics, this));
++  // dataFlagsDiagnosticsTimer_ disabled for gen0 sensor
++  // std::bind(&RokubiminiEthercat::publishDataFlagsDiagnostics, this)
+ }
+ 
+ void RokubiminiEthercat::publishDataFlagsDiagnostics()
+diff --git a/bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/RokubiminiEthercatBusManager.cpp b/bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/RokubiminiEthercatBusManager.cpp
+index a550653..d492e24 100644
+--- a/bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/RokubiminiEthercatBusManager.cpp
++++ b/bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/RokubiminiEthercatBusManager.cpp
+@@ -138,7 +138,7 @@ void RokubiminiEthercatBusManager::waitForState(const uint16_t state, const uint
+ bool RokubiminiEthercatBusManager::startupCommunication()
+ {
+   std::lock_guard<std::recursive_mutex> lock(busMutex_);
+-  if (!bus_->startup())
++  if (!bus_->startup(false))
+   {
+     RCLCPP_ERROR(nh_->get_logger(), "Failed to startup bus %s.", ethercatBusName_.c_str());
+     return false;
+diff --git a/bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/RokubiminiEthercatSlave.cpp b/bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/RokubiminiEthercatSlave.cpp
+index a135bfe..e589ae9 100644
+--- a/bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/RokubiminiEthercatSlave.cpp
++++ b/bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/RokubiminiEthercatSlave.cpp
+@@ -51,8 +51,10 @@ void RokubiminiEthercatSlave::updateRead()
+   switch (getCurrentPdoTypeEnum())
+   {
+     case PdoTypeEnum::A:
++      {
+       TxPdoA tx_pdo_a;
+       bus_->readTxPdo(address_, tx_pdo_a);
++      // raw PDO debug removed
+       {
+         reading_.getWrench().header.stamp = update_stamp;
+         reading_.getWrench().header.frame_id = name_ + "_wrench";
+@@ -65,25 +67,26 @@ void RokubiminiEthercatSlave::updateRead()
+ 
+         reading_.getImu().header.stamp = update_stamp;
+         reading_.getImu().header.frame_id = name_ + "_imu";
+-        reading_.getImu().angular_velocity.x = tx_pdo_a.angularRateX_ * DEG_TO_RAD;
+-        reading_.getImu().angular_velocity.y = tx_pdo_a.angularRateY_ * DEG_TO_RAD;
+-        reading_.getImu().angular_velocity.z = tx_pdo_a.angularRateZ_ * DEG_TO_RAD;
+-        reading_.getImu().linear_acceleration.x = tx_pdo_a.accelerationX_ * G_TO_METERS_PER_SECOND_SQUARED;
+-        reading_.getImu().linear_acceleration.y = tx_pdo_a.accelerationY_ * G_TO_METERS_PER_SECOND_SQUARED;
+-        reading_.getImu().linear_acceleration.z = tx_pdo_a.accelerationZ_ * G_TO_METERS_PER_SECOND_SQUARED;
+-        reading_.getImu().orientation.x = tx_pdo_a.estimatedOrientationX_;
+-        reading_.getImu().orientation.y = tx_pdo_a.estimatedOrientationY_;
+-        reading_.getImu().orientation.z = tx_pdo_a.estimatedOrientationZ_;
+-        reading_.getImu().orientation.w = tx_pdo_a.estimatedOrientationW_;
+-
+-        reading_.setStatusword(Statusword(tx_pdo_a.warningsErrorsFatals_));
+-        reading_.setForceTorqueSaturated(tx_pdo_a.forceTorqueSaturated_ != 0);
++        reading_.getImu().angular_velocity.x = 0.0;
++        reading_.getImu().angular_velocity.y = 0.0;
++        reading_.getImu().angular_velocity.z = 0.0;
++        reading_.getImu().linear_acceleration.x = 0.0;
++        reading_.getImu().linear_acceleration.y = 0.0;
++        reading_.getImu().linear_acceleration.z = 0.0;
++        reading_.getImu().orientation.x = 0.0;
++        reading_.getImu().orientation.y = 0.0;
++        reading_.getImu().orientation.z = 0.0;
++        reading_.getImu().orientation.w = 1.0;
++
++        //reading_.setStatusword(Statusword(tx_pdo_a.warningsErrorsFatals_)); // disabled for gen0
++        reading_.setForceTorqueSaturated(false);
+ 
+         reading_.getTemperature().header.stamp = update_stamp;
+         reading_.getTemperature().header.frame_id = name_ + "_temp";
+-        reading_.getTemperature().temperature = tx_pdo_a.temperature_;
++        reading_.getTemperature().temperature = 0.0;
+         reading_.getTemperature().variance = 0;  // unknown variance
+       }
++      }
+       break;
+     default:
+       break;
+@@ -440,7 +443,8 @@ void RokubiminiEthercatSlave::updateWrite()
+   std::lock_guard<std::recursive_mutex> lock(mutex_);
+ 
+   RxPdo rx_pdo;
+-  rx_pdo.digitalOutput_ = static_cast<uint8_t>(0);
++  rx_pdo.filter_ = 0;
++  rx_pdo.zero_ = 0;
+   bus_->writeRxPdo(address_, rx_pdo);
+ }
+ 
+diff --git a/bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/soem_interface/EthercatBusBase.cpp b/bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/soem_interface/EthercatBusBase.cpp
+index 63cdb41..5c00121 100644
+--- a/bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/soem_interface/EthercatBusBase.cpp
++++ b/bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/soem_interface/EthercatBusBase.cpp
+@@ -258,22 +258,13 @@ void EthercatBusBase::updateRead()
+   updateReadStamp_ = clock_.now();
+   {
+     std::lock_guard<std::recursive_mutex> guard(contextMutex_);
+-    wkc_ = ecx_receive_processdata(&ecatContext_, EC_TIMEOUTRET);
++    wkc_ = ecx_receive_processdata(&ecatContext_, 500);  // reduced timeout for gen0
+   }
+   sentProcessData_ = false;
+ 
+   //! Check the working counter.
+-  if (!workingCounterIsOk())
+-  {
+-    RCLCPP_WARN_STREAM_THROTTLE(rclcpp::get_logger("EtherCAT bus"), clock_, 1.0,
+-                                "[" << getName() << "] "
+-                                    << "Update Read:" << this);
+-    RCLCPP_WARN_STREAM_THROTTLE(rclcpp::get_logger("EtherCAT bus"), clock_, 1.0,
+-                                "[" << getName() << "] "
+-                                    << "Working counter is too low: " << wkc_.load() << " < "
+-                                    << getExpectedWorkingCounter());
+-    return;
+-  }
++  // Working counter check disabled for gen0 sensor compatibility
++  // if (!workingCounterIsOk()) { return; }
+ 
+   //! Each slave attached to this bus reads its data to the buffer.
+   for (auto& slave : slaves_)
+@@ -349,7 +340,7 @@ bool EthercatBusBase::waitForState(const uint16_t state, const uint16_t slave, c
+     }
+     // TODO: Do this for all states?
+     ecx_send_processdata(&ecatContext_);
+-    wkc_ = ecx_receive_processdata(&ecatContext_, EC_TIMEOUTRET);
++    wkc_ = ecx_receive_processdata(&ecatContext_, 500);  // reduced timeout for gen0
+   }
+ 
+   RCLCPP_WARN_STREAM(rclcpp::get_logger("EtherCAT bus"),

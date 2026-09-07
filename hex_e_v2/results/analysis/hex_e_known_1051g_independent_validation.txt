@@ -1,0 +1,73 @@
+========== INDEPENDENT 1051 g VALIDATION ==========
+Combined data:          /home/kairos/hex_e_calibration_20260901_145215/hex_e_known_1051g_validation_combined_5poses.csv
+Records:                5
+Pose order:
+  reference
+  w1_m60_w2_m90
+  w1_m120_w2_m90
+  w1_m90_w2_m60
+  w1_m90_w2_m120
+
+625 g-derived candidate matrix A:
+[[ 1.25553198e+00 -3.16532263e-02 -6.37730031e-02]
+ [ 7.31990577e-04  1.12968389e+00 -4.59014772e-02]
+ [-1.16084707e-01  6.96001054e-02  1.41995740e+00]]
+
+This matrix is not refitted to the 1051 g data.
+
+reference
+  Raw delta:              [-0.09234999  0.3136      7.15010078] N
+  Candidate corrected:    [-0.58185822  0.02600108 10.18538555] N
+  Expected:               [5.88799538e-05 1.03330479e-04 1.03067891e+01] N
+  Raw magnitude ratio:    0.694452
+  Corrected ratio:        0.989835
+  Raw vector error:       3.173563 N
+  Corrected vector error: 0.595010 N
+
+w1_m60_w2_m90
+  Raw delta:              [4.95724998 0.3445     6.64910027] N
+  Candidate corrected:    [5.78904826 0.08760124 8.88995546] N
+  Expected:               [ 5.15358502e+00 -1.68380152e-04  8.92583128e+00] N
+  Raw magnitude ratio:    0.805374
+  Corrected ratio:        1.029327
+  Raw vector error:       2.311027 N
+  Corrected vector error: 0.642498 N
+
+w1_m120_w2_m90
+  Raw delta:              [-3.83549991  0.2325      6.37440117] N
+  Candidate corrected:    [-5.22946688 -0.03275048  9.51280303] N
+  Expected:               [-5.15217819e+00 -1.26215938e-04  8.92664341e+00] N
+  Raw magnitude ratio:    0.722144
+  Corrected ratio:        1.053238
+  Raw vector error:       2.881267 N
+  Corrected vector error: 0.592133 N
+
+w1_m90_w2_m60
+  Raw delta:              [0.6199     5.16369998 6.23129936] N
+  Candidate corrected:    [0.21746783 5.5477766  9.1356128 ] N
+  Expected:               [2.30953462e-04 5.15377680e+00 8.92572055e+00] N
+  Raw magnitude ratio:    0.787488
+  Corrected ratio:        1.037219
+  Raw vector error:       2.764777 N
+  Corrected vector error: 0.496470 N
+
+w1_m90_w2_m120
+  Raw delta:              [-0.68619999 -4.31825002  6.41889946] N
+  Candidate corrected:    [-1.13421199 -5.17339674  8.89367047] N
+  Expected:               [ 1.65660496e-04 -5.15332544e+00  8.92598115e+00] N
+  Raw magnitude ratio:    0.753544
+  Corrected ratio:        1.004311
+  Raw vector error:       2.730184 N
+  Corrected vector error: 1.135015 N
+
+========== VALIDATION SUMMARY ==========
+Raw mean error:          2.772164 N
+Raw RMS error:           2.786106 N
+Raw maximum error:       3.173563 N
+Corrected mean error:    0.692225 N
+Corrected RMS error:     0.728314 N
+Corrected maximum error: 1.135015 N
+
+Saved combined CSV: /home/kairos/hex_e_calibration_20260901_145215/hex_e_known_1051g_validation_combined_5poses.csv
+Saved analysis:     /home/kairos/hex_e_calibration_20260901_145215/hex_e_known_1051g_independent_validation.json
+No calibration was applied.

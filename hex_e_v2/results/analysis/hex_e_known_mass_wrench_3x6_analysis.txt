@@ -1,0 +1,154 @@
+========== KNOWN-MASS 3x6 WRENCH FIT ==========
+625 g training records:       18
+1051 g validation records:    8
+Scaled design rank:           6
+Scaled condition number:      16.306855
+Scaled singular values:
+[7.36872917 5.89293954 4.21854066 0.82422629 0.54356688 0.45187925]
+
+3x6 force-from-wrench matrix:
+[[ 0.60406465  0.29254119 -0.23367678  1.9890877   5.31577861  7.15826073]
+ [-0.0958419   1.19206     0.02448394  0.98707755  0.54699828  1.18324778]
+ [-0.1389883   0.01581338  0.97943276 -3.06794707  1.29689179 -0.30147565]]
+
+Column order:
+  [Fx, Fy, Fz, Tx, Ty, Tz]
+
+Units:
+  First three columns: N output per N input
+  Last three columns:  N output per Nm input
+
+========== COMBINED 625 g TRAINING FIT ==========
+Component RMSE:               0.214479 N
+Vector RMSE:                  0.371488 N
+Mean vector error:            0.323660 N
+Maximum vector error:         0.732634 N
+
+========== CROSS-RUN 625 g PREDICTION ==========
+
+Train Run 1, test Run 2:
+  Fit rank:                    6
+  Fit condition number:        28.132038
+  Test vector RMSE:            1.705072 N
+  Test mean error:             0.826509 N
+  Test maximum error:          5.030767 N
+
+Train Run 2, test Run 1:
+  Fit rank:                    6
+  Fit condition number:        20.544193
+  Test vector RMSE:            0.601729 N
+  Test mean error:             0.450068 N
+  Test maximum error:          1.502120 N
+
+========== GROUPED LEAVE-ONE-ORIENTATION-OUT ==========
+reference: errors=[0.4331793966361617, 0.4360873486262854], mean=0.434633 N
+w1_m120_w2_m120: errors=[0.34612209120040743, 0.29177096873639674], mean=0.318947 N
+w1_m120_w2_m60: errors=[0.2045424871107331, 0.28432231241339806], mean=0.244432 N
+w1_m120_w2_m90: errors=[0.3604319256093943, 0.808076743452719], mean=0.584254 N
+w1_m60_w2_m120: errors=[1.2174873566950635, 0.9128239878376869], mean=1.065156 N
+w1_m60_w2_m60: errors=[1.3924814508865442, 0.8580245643432901], mean=1.125253 N
+w1_m60_w2_m90: errors=[0.6418999192637902, 0.575769114718369], mean=0.608835 N
+w1_m90_w2_m120: errors=[0.5037906583786852, 0.4953091942536868], mean=0.499550 N
+w1_m90_w2_m60: errors=[1.4120170639807499, 4.58643296188824], mean=2.999225 N
+
+Grouped cross-validation summary:
+  Mean error:                  0.875587 N
+  RMS error:                   1.307051 N
+  Maximum error:               4.586433 N
+
+========== INDEPENDENT 1051 g VALIDATION ==========
+
+1051g_original / reference
+  Raw wrench:                  [-9.23499909e-02  3.13600000e-01  7.15010078e+00 -7.69795005e-01
+  5.21110000e-01 -6.62000008e-03]
+  3x6 predicted force:         [-0.44332901  0.07510949 10.06034695] N
+  Expected force:              [5.88799538e-05 1.03330479e-04 1.03067891e+01] N
+  Residual:                    [-0.44338789  0.07500616 -0.2464422 ] N
+  Error norm:                  0.512789 N
+  Raw-force magnitude ratio:   0.694452
+  Predicted magnitude ratio:   0.977064
+
+1051g_original / w1_m60_w2_m90
+  Raw wrench:                  [ 4.95724998  0.3445      6.64910027 -0.741035    0.425665    0.40186   ]
+  3x6 predicted force:         [5.20691558 0.07522756 8.53314117] N
+  Expected force:              [ 5.15358502e+00 -1.68380152e-04  8.92583128e+00] N
+  Residual:                    [ 0.05333056  0.07539594 -0.39269011] N
+  Error norm:                  0.403403 N
+  Raw-force magnitude ratio:   0.805374
+  Predicted magnitude ratio:   0.969905
+
+1051g_original / w1_m120_w2_m90
+  Raw wrench:                  [-3.83549991  0.2325      6.37440117 -0.59952501  0.41137    -0.36444   ]
+  3x6 predicted force:         [-5.35293610e+00  2.84423300e-03  9.26274669e+00] N
+  Expected force:              [-5.15217819e+00 -1.26215938e-04  8.92664341e+00] N
+  Residual:                    [-0.20075791  0.00297045  0.33610328] N
+  Error norm:                  0.391507 N
+  Raw-force magnitude ratio:   0.722144
+  Predicted magnitude ratio:   1.037980
+
+1051g_original / w1_m90_w2_m60
+  Raw wrench:                  [ 0.6199      5.16369998  6.23129936 -0.927685    0.51402    -0.262085  ]
+  3x6 predicted force:         [-0.55995837  5.30395411  9.69036446] N
+  Expected force:              [2.30953462e-04 5.15377680e+00 8.92572055e+00] N
+  Residual:                    [-0.56018932  0.15017731  0.76464392] N
+  Error norm:                  0.959711 N
+  Raw-force magnitude ratio:   0.787488
+  Predicted magnitude ratio:   1.073189
+
+1051g_original / w1_m90_w2_m120
+  Raw wrench:                  [-0.68619999 -4.31825002  6.41889946 -0.796175    0.45532     0.26791   ]
+  3x6 predicted force:         [-0.42323484 -5.14450971  9.26632322] N
+  Expected force:              [ 1.65660496e-04 -5.15332544e+00  8.92598115e+00] N
+  Residual:                    [-0.4234005   0.00881573  0.34034207] N
+  Error norm:                  0.543303 N
+  Raw-force magnitude ratio:   0.753544
+  Predicted magnitude ratio:   1.029134
+
+1051g_repeat / w1_m90_w2_m120_trial1
+  Raw wrench:                  [-0.6558     -4.26064998  6.07349976 -0.81496     0.461305    0.26826   ]
+  3x6 predicted force:         [-0.31035369 -5.10207168  8.9900008 ] N
+  Expected force:              [-1.07164962e-04 -5.15372552e+00  8.92575016e+00] N
+  Residual:                    [-0.31024653  0.05165383  0.06425064] N
+  Error norm:                  0.321013 N
+  Raw-force magnitude ratio:   0.722617
+  Predicted magnitude ratio:   1.003372
+
+1051g_repeat / w1_m90_w2_m120_trial2
+  Raw wrench:                  [-0.61625    -4.2287      6.39494949 -0.787945    0.44327     0.270985  ]
+  3x6 predicted force:         [-0.37486022 -5.03988045  9.19275591] N
+  Expected force:              [ 1.28812851e-04 -5.15331268e+00  8.92598852e+00] N
+  Residual:                    [-0.37498903  0.11343222  0.26676739] N
+  Error norm:                  0.473971 N
+  Raw-force magnitude ratio:   0.746242
+  Predicted magnitude ratio:   1.017811
+
+1051g_repeat / w1_m90_w2_m120_trial3
+  Raw wrench:                  [-0.19959999 -4.21575007  6.26890045 -0.777855    0.434775    0.258955  ]
+  3x6 predicted force:         [-0.20113504 -5.07638367  8.97324873] N
+  Expected force:              [-1.67938315e-04 -5.15360635e+00  8.92581896e+00] N
+  Residual:                    [-0.2009671   0.07722268  0.04742976] N
+  Error norm:                  0.220456 N
+  Raw-force magnitude ratio:   0.733227
+  Predicted magnitude ratio:   1.000468
+
+Independent 1051 g 3x6 summary:
+  Mean vector error:           0.478269 N
+  Vector RMSE:                 0.520995 N
+  Maximum vector error:        0.959711 N
+
+========== 3x3 VERSUS 3x6 ON ALL EIGHT 1051 g RECORDS ==========
+Existing 3x3 force-only candidate:
+  Mean vector error:           0.789421 N
+  Vector RMSE:                 0.833629 N
+  Maximum vector error:        1.197286 N
+
+New 3x6 wrench candidate:
+  Mean vector error:           0.478269 N
+  Vector RMSE:                 0.520995 N
+  Maximum vector error:        0.959711 N
+
+3x6 mean-error improvement:    0.311151 N
+RESULT: 3x6 improves mean error on the independent records.
+
+Saved: /home/kairos/hex_e_calibration_20260901_145215/hex_e_known_mass_wrench_3x6_analysis.json
+No calibration was applied.

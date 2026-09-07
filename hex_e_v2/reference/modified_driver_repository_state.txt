@@ -1,0 +1,42 @@
+# Modified EtherCAT Driver Repository State
+
+Repository:
+/home/kairos/kairos_ws/src/bota_ft_sensor_driver
+
+Recorded:
+2026-09-07T21:01:28+02:00
+
+## Git commit
+a064c9be230d96539ff8733d16f2e4068875d649
+a064c9b (HEAD -> main, origin/main, origin/HEAD) working estimation
+
+## Remotes
+origin	https://github.com/idra-lab/bota_ft_sensor_driver.git (fetch)
+origin	https://github.com/idra-lab/bota_ft_sensor_driver.git (push)
+
+## Working-tree status
+ M bota_driver/rokubimini_bus_manager/src/rokubimini_bus_manager/BusManager.cpp
+ M bota_driver/rokubimini_ethercat/include/rokubimini_ethercat/RxPdo.hpp
+ M bota_driver/rokubimini_ethercat/include/rokubimini_ethercat/TxPdoA.hpp
+ M bota_driver/rokubimini_ethercat/include/rokubimini_ethercat/soem_interface/EthercatBusBase.hpp
+ M bota_driver/rokubimini_ethercat/launch/rokubimini_ethercat.launch.py
+ M bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/RokubiminiEthercat.cpp
+ M bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/RokubiminiEthercatBusManager.cpp
+ M bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/RokubiminiEthercatSlave.cpp
+ M bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/soem_interface/EthercatBusBase.cpp
+?? bota_driver/rokubimini_ethercat/include/rokubimini_ethercat/RxPdo.hpp.before_onrobot_fix
+?? bota_driver/rokubimini_ethercat/include/rokubimini_ethercat/TxPdoA.hpp.before_onrobot_fix
+?? bota_driver/rokubimini_ethercat/src/rokubimini_ethercat/RokubiminiEthercatSlave.cpp.before_onrobot_fix
+?? sensor_offset/rokubimini_sensor_minimal.yaml
+
+## Difference summary
+ .../src/rokubimini_bus_manager/BusManager.cpp      |  6 +++-
+ .../include/rokubimini_ethercat/RxPdo.hpp          | 10 ++++--
+ .../include/rokubimini_ethercat/TxPdoA.hpp         | 36 ++++++++++++----------
+ .../soem_interface/EthercatBusBase.hpp             |  4 +--
+ .../launch/rokubimini_ethercat.launch.py           | 10 +++---
+ .../src/rokubimini_ethercat/RokubiminiEthercat.cpp |  7 +++--
+ .../RokubiminiEthercatBusManager.cpp               |  2 +-
+ .../RokubiminiEthercatSlave.cpp                    | 34 +++++++++++---------
+ .../soem_interface/EthercatBusBase.cpp             | 17 +++-------
+ 9 files changed, 66 insertions(+), 60 deletions(-)

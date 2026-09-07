@@ -1,0 +1,15 @@
+=== EMA ALPHA 0.20 DEADBAND ANALYSIS ===
+Evaluated samples: 550
+Mean:              [-0.0957396  -0.02101058  0.0136122 ] N
+Standard deviation:[0.30951774 0.0310171  0.30579843] N
+
+90.0th absolute component percentile: [0.53600941 0.05929994 0.50541741] N
+90.0th force-norm percentile:         0.653018 N
+95.0th absolute component percentile: [0.63551964 0.06888059 0.58559074] N
+95.0th force-norm percentile:         0.763198 N
+99.0th absolute component percentile: [0.78881964 0.08868554 0.7713604 ] N
+99.0th force-norm percentile:         0.926703 N
+99.5th absolute component percentile: [0.86681109 0.10204048 0.82067922] N
+99.5th force-norm percentile:         0.963956 N
+
+No robot motion was commanded.
