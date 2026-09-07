@@ -1,0 +1,38 @@
+# ROS and colcon
+build/
+install/
+log/
+*.log
+
+# ROS bags and databases
+*.mcap
+*.db3
+*.bag
+rosbag2_*/
+ur_demo_bags/
+bags/
+
+# Generated Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Editors and operating system
+.vscode/
+.idea/
+*~
+.DS_Store
+
+# Temporary and backup files
+*.before_*
+*.backup.*
+*.tmp
+/tmp/
+
+# Credentials and local configuration
+.env
+.env.*
+*.pem
+*.key
+credentials*
+secrets*

@@ -1,0 +1,17 @@
+Path: /home/kairos/ur_demo_bags/replay_tests/synchronized_replay_20260907_175919
+
+
+Files:             synchronized_replay_20260907_175919_0.mcap
+Bag size:          33.4 MiB
+Storage id:        mcap
+ROS Distro:        jazzy
+Duration:          298.531041226s
+Start:             Sep  7 2026 17:59:20.417029584 (1788796760.417029584)
+End:               Sep  7 2026 18:04:18.948070810 (1788797058.948070810)
+Messages:          62614
+Topic information: Topic: /gripper/command | Type: std_msgs/msg/Float64 | Count: 22 | Serialization Format: cdr
+                   Topic: /gripper/position | Type: std_msgs/msg/Float64 | Count: 2906 | Serialization Format: cdr
+                   Topic: /joint_states | Type: sensor_msgs/msg/JointState | Count: 29832 | Serialization Format: cdr
+                   Topic: /scaled_joint_trajectory_controller/controller_state | Type: control_msgs/msg/JointTrajectoryControllerState | Count: 29854 | Serialization Format: cdr
+Service:           0
+Service information: 

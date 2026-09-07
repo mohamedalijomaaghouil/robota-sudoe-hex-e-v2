@@ -1,0 +1,18 @@
+Path: /home/kairos/ur_demo_bags/new_demo_20260907_201234
+
+
+Files:             new_demo_20260907_201234_0.mcap
+Bag size:          12.6 MiB
+Storage id:        mcap
+ROS Distro:        jazzy
+Duration:          211.190681199s
+Start:             Sep  7 2026 20:12:35.658309686 (1788804755.658309686)
+End:               Sep  7 2026 20:16:06.848990885 (1788804966.848990885)
+Messages:          67452
+Topic information: Topic: /force_sensor_ur_zeroed | Type: geometry_msgs/msg/WrenchStamped | Count: 20889 | Serialization Format: cdr
+                   Topic: /forward_velocity_controller/commands | Type: std_msgs/msg/Float64MultiArray | Count: 23356 | Serialization Format: cdr
+                   Topic: /gripper/command | Type: std_msgs/msg/Float64 | Count: 68 | Serialization Format: cdr
+                   Topic: /gripper/position | Type: std_msgs/msg/Float64 | Count: 2019 | Serialization Format: cdr
+                   Topic: /joint_states | Type: sensor_msgs/msg/JointState | Count: 21120 | Serialization Format: cdr
+Service:           0
+Service information: 

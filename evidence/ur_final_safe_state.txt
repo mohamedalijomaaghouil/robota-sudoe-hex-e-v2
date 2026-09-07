@@ -1,0 +1,24 @@
+ROBOTA-SUDOE FINAL DELIVERY
+Mon Sep  7 07:32:58 PM CEST 2026
+
+=== CONTROLLERS ===
+scaled_joint_trajectory_controller ur_controllers/ScaledJointTrajectoryController                 active  
+forward_velocity_controller        forward_command_controller/ForwardCommandController            inactive
+
+=== VELOCITY COMMAND PUBLISHERS ===
+Type: std_msgs/msg/Float64MultiArray
+Publisher count: 0
+Subscription count: 1
+
+=== JOINT VELOCITIES ===
+velocity:
+- -0.0
+- 0.0
+- 0.0
+- -0.0
+- -0.0
+- -0.0
+effort:
+
+=== ACTIVE ADMITTANCE/REPLAY PROCESSES ===
+No admittance, replay, or recording process is running.
