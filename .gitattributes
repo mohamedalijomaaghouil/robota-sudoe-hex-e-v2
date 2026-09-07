@@ -1,0 +1,6 @@
+# Preserve experimental datasets exactly as collected.
+*.csv -text -diff
+
+# Preserve ROS bag and binary measurement formats as binary.
+*.mcap -text -diff
+*.db3 -text -diff
