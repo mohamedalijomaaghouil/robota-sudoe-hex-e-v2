@@ -980,5 +980,5 @@ The validated system can:
 - reconstruct and replay gripper motion;
 - evaluate replay accuracy from recorded controller feedback.
 
-The next development objective is to reproduce the same demonstration-recording and replay capability using the Bota HEX-E v2 external force/torque sensor.
+The next development objective is to reproduce the same demonstration-recording and replay capability using the OnRobot HEX-E v2 external force/torque sensor.
 

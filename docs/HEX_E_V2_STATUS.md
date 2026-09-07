@@ -29,6 +29,11 @@ Work completed or partially completed includes:
 - controller-state interlocks;
 - zero-command and inactive-controller validation;
 - execution-bridge tests while the velocity controller remained inactive.
+The physical device is an OnRobot HEX-E v2 force/torque sensor. During the
+integration work, a Bota/Rokubimini EtherCAT software stack was investigated
+and adapted as an implementation starting point. References to Bota in the
+source tree therefore describe software ancestry and do not identify the
+sensor manufacturer.
 
 ## Current evidence
 

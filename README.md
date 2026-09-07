@@ -15,7 +15,7 @@ The primary objectives were:
 2. Implement force-guided admittance control.
 3. Record manually guided demonstrations.
 4. Replay recorded arm and gripper motions.
-5. Integrate a Bota/OnRobot HEX-E v2 external force/torque sensor.
+5. Integrate a OnRobot HEX-E v2 external force/torque sensor.
 6. Develop safer preview, interlock, and execution mechanisms.
 
 ## Current status
@@ -82,7 +82,7 @@ See `docs/SAFETY.md` before operating the robot.
 - ros2_control
 - UR5e
 - SCHUNK gripper
-- Bota/OnRobot HEX-E v2 F/T sensor
+- OnRobot HEX-E v2 F/T sensor
 
 ## Project status
 
