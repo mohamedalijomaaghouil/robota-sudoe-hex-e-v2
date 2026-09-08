@@ -1,0 +1,43 @@
+OnRobot HEX-E v2 live acquisition check
+Recorded: 2026-09-07T21:19:48+02:00
+Topic: /bus0/ft_sensor0/ft_sensor_readings/wrench
+
+=== TOPIC INFO ===
+Type: geometry_msgs/msg/WrenchStamped
+
+Publisher count: 1
+
+Node name: bus0
+Node namespace: /
+Topic type: geometry_msgs/msg/WrenchStamped
+Topic type hash: RIHS01_8dc3deaf06b2ab281f9f9a742a8961c328ca7cec16e3fd6586d3a5c83fa78f77
+Endpoint type: PUBLISHER
+GID: 01.0f.1c.fe.6e.77.60.14.00.00.00.00.00.00.15.03
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): UNKNOWN
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Subscription count: 0
+
+
+=== ONE SAMPLE ===
+header:
+  stamp:
+    sec: 1788808790
+    nanosec: 92219058
+  frame_id: ft_sensor0_wrench
+wrench:
+  force:
+    x: -4.050000190734863
+    y: 0.9200000166893005
+    z: 158.6699981689453
+  torque:
+    x: -0.9490000009536743
+    y: -0.20600000023841858
+    z: 0.10000000149011612
+---
