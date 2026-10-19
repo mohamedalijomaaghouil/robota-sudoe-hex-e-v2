@@ -19,6 +19,22 @@ Validated capabilities:
 - synchronized replay of the arm and SCHUNK gripper;
 - recording of replay feedback for later accuracy analysis.
 
+### Replay accuracy
+
+Synchronized arm + gripper replay of the 242 s demonstration
+(bag `synchronized_replay_20260907_175919`, manifest in
+`ur_internal_ft/data_manifests/demo_a_synchronized_replay_evaluation_bag_info.txt`):
+
+| Metric | Value |
+|--------|-------|
+| RMS joint tracking error, all joints | **0.367 mrad** |
+| Maximum absolute joint tracking error | 6.455 mrad |
+| Final gripper position error | **0.06 mm** (65.03 mm commanded, 64.97 mm reached) |
+
+Computed with `ur_internal_ft/scripts/analyze_replay_tracking_error.py` from the
+`error` field of `/scaled_joint_trajectory_controller/controller_state`. Full output:
+`ur_internal_ft/results/synchronized_replay_tracking_error.txt`.
+
 ## Validated legacy controller
 
 The successful controller source has SHA-256:

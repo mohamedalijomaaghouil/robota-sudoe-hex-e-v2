@@ -76,6 +76,11 @@ ZERO
 The force and torque values decoded from the first six REAL32 fields were
 interpreted in newtons and newton-metres.
 
+The original driver patch instead decoded the six signed 32-bit fields at bytes
+24-47 as scaled integers divided by 1e6. This produced values about 100 times
+smaller than the actual forces. The corrected driver publishes the six REAL32
+fields directly, which agree with the values read over CoE.
+
 This interpretation produced physically responsive force/torque data, but it
 must still be considered an experimentally derived implementation rather than
 an officially validated OnRobot driver.

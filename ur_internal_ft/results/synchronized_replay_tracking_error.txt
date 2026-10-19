@@ -1,0 +1,9 @@
+Bag: synchronized_replay_20260907_175919_0.mcap
+Joints: shoulder_pan_joint, shoulder_lift_joint, elbow_joint, wrist_1_joint, wrist_2_joint, wrist_3_joint
+Controller state samples: 29854
+Duration: 298.5 s
+RMS tracking error per joint (mrad): 0.529 0.287 0.249 0.333 0.045 0.520
+RMS tracking error, all joints: 0.367 mrad
+Maximum absolute tracking error: 6.455 mrad
+Gripper commands: 22
+Final gripper command: 65.03 mm, final position: 64.97 mm, error: 0.06 mm
